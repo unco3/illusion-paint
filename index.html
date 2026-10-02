@@ -1,4 +1,29 @@
 <!doctype html>
+<!--
+Software license: MIT
+MIT License
+
+Copyright (c) 2026 unco3 (https://github.com/unco3/illusion-paint)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>錯視ペイント — Motion without moving</title><link rel="icon" href="data:,"><style>
 :root{color-scheme:dark;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;font-size:12px;background:#191b1e;color:#e1e4e8;--line:#383c42;--muted:#a2a8b0;--accent:#a7cadd;--panel:#272a2f;--raised:#32363c;--selected:#354651}*{box-sizing:border-box;border-radius:0!important}body{touch-action:manipulation;margin:0;height:100vh;height:100dvh;overflow:hidden;display:grid;grid-template-rows:46px 50px minmax(0,1fr) 28px}button,input,select,textarea{font:inherit;color:inherit}button,select,input[type=text],input[type=number],textarea{border:1px solid #4b5058;background:#202328;min-height:28px;padding:5px 8px}button{cursor:pointer;white-space:nowrap}button:hover:not(:disabled){background:#41464e;border-color:#747c88}button:disabled{opacity:.3;cursor:default}.primary{background:var(--accent);border-color:var(--accent);color:#17252d;font-weight:600}.primary:hover:not(:disabled){background:#c3dfec;color:#14232b}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid #e5c178;outline-offset:2px}input[type=range]{accent-color:var(--accent);min-width:0}input[type=checkbox]{accent-color:var(--accent);margin:0}button svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.4;fill:none;stroke-linecap:square;stroke-linejoin:miter}h1,h2,h3,p{margin:0}h1{font-size:14px;letter-spacing:.02em;font-weight:600}h2{font-size:12px;font-weight:600}h3{font-size:11px;font-weight:500}hr{border:0;border-top:1px solid var(--line);margin:5px 0}[hidden]{display:none!important}.muted{font-size:11px;line-height:1.8;color:var(--muted)}.small{font-size:10px}.check{display:flex;align-items:center;gap:6px}.quiet{background:transparent;border-color:transparent}.danger-text{color:#d9afb0}.wide{width:100%}.text-button{padding:3px 6px;font-size:10px;min-height:24px;background:transparent}.secondary{background:transparent}
 .app-bar{display:flex;align-items:center;padding:0 12px;gap:12px;border-bottom:1px solid #111316;background:#272a2e;z-index:20}.brand{display:flex;align-items:center;gap:8px;margin-right:12px}.brand-mark{font-size:26px;color:var(--accent);line-height:1}.app-tagline{font-size:9px;color:#818993;letter-spacing:.16em;margin-left:12px}.app-actions{display:flex;align-items:center;gap:5px;margin-left:auto}.app-actions button{background:transparent;border-color:transparent}.app-actions .primary{background:var(--accent);color:#17252d;margin-left:12px;padding:6px 16px}.menu{position:relative}.menu summary{cursor:pointer;list-style:none;padding:8px}.menu summary::-webkit-details-marker{display:none}.menu[open] summary{background:var(--raised)}.menu-content{position:absolute;top:33px;left:0;width:235px;background:#292d32;border:1px solid #555c65;box-shadow:0 12px 30px #0006;padding:6px;z-index:40}.menu-content button{display:flex;align-items:center;justify-content:space-between;width:100%;border:0;background:transparent;text-align:left;padding:9px 10px}.menu-content span{font-size:10px;color:var(--muted)}#inspectorToggle{display:none}
