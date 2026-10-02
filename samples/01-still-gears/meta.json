@@ -1,0 +1,18 @@
+{
+  "slug": "01-still-gears",
+  "title": "止まった歯車",
+  "subtitle": "STILL GEARS",
+  "description": "外側と内側は同じ向き、真ん中は逆向き。三角形の位置を一切変えず、輪郭の明暗だけで回転感をつくります。",
+  "social": "回って見える。でも三角形は1ピクセルも移動していません。止めると分かる、明暗だけの錯視。",
+  "tuning": "動きの範囲一覧で各リングを選び「回転方向」を反転。強さを2→1にすると控えめになります。",
+  "project": "project.json",
+  "poster": "poster.png",
+  "still": "still.png",
+  "gif": "loop.gif",
+  "apng": "loop.apng",
+  "width": 960,
+  "height": 600,
+  "hz": 2.5,
+  "geometry": "Fixed alpha masks; only edge grayscale changes.",
+  "assets": "Original geometric artwork; no third-party images or fonts."
+}

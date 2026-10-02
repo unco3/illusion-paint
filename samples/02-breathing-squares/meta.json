@@ -1,0 +1,18 @@
+{
+  "slug": "02-breathing-squares",
+  "title": "息をする四角",
+  "subtitle": "BREATHING SQUARES",
+  "description": "左は広がり、右は吸い込まれるように見える。7重の四角形はどちらも固定したままです。",
+  "social": "左は大きく、右は小さくなる？ 実は、四角のサイズはずっと同じ。輪郭の明暗だけで作りました。",
+  "tuning": "左／右の範囲を選び「拡大」と「縮小」を入れ替えると印象が逆転します。周波数2.0〜3.0Hzを試してください。",
+  "project": "project.json",
+  "poster": "poster.png",
+  "still": "still.png",
+  "gif": "loop.gif",
+  "apng": "loop.apng",
+  "width": 960,
+  "height": 600,
+  "hz": 2.5,
+  "geometry": "Fixed alpha masks; only edge grayscale changes.",
+  "assets": "Original geometric artwork; no third-party images or fonts."
+}

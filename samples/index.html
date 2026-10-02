@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="形を動かさず、明暗だけで動きをつくる。錯視ペイントで開いて編集できる龍の作品と3つの基本サンプル。">
+  <title>止まっているのに、動く。｜錯視ペイント サンプル</title>
+  <style>
+    :root{color-scheme:dark;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;background:#111314;color:#eef0eb;font-synthesis:none}
+    *{box-sizing:border-box;border-radius:0!important}body{margin:0}a{color:inherit;text-underline-offset:4px}button,a{touch-action:manipulation}button:focus-visible,a:focus-visible{outline:2px solid #c2e980;outline-offset:5px}
+    .wrap{max-width:1240px;margin:auto;padding:0 40px}header{border-bottom:1px solid #383c3d}nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:13px}.brand{text-decoration:none;font-weight:700;letter-spacing:.12em}.app{font-weight:600}
+    .intro{padding:72px 0 64px}.eyebrow{font-size:11px;letter-spacing:.18em;color:#c2e980;font-weight:700;margin:0 0 22px}h1{font-size:clamp(32px,5vw,66px);line-height:1.2;letter-spacing:-.045em;font-weight:650;margin:0 0 24px}.intro p:last-child{color:#b4bbba;line-height:1.9;font-size:16px;max-width:650px;margin:0}
+    article{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(240px,1fr);gap:36px;border-top:1px solid #383c3d;padding:36px 0 48px;align-items:center}.preview{margin:0;position:relative;background:#626262}.preview img{display:block;width:100%;height:auto;aspect-ratio:8/5}.badge{position:absolute;left:12px;top:12px;background:#111314e6;color:#c2e980;font-size:10px;font-weight:700;letter-spacing:.15em;padding:7px 9px}.number{font:12px ui-monospace,SFMono-Regular,monospace;color:#8e9898;letter-spacing:.1em;margin:0 0 15px}h2{margin:0 0 15px;font-size:27px;letter-spacing:-.04em}.description{color:#b4bbba;font-size:14px;line-height:1.85;margin:0 0 23px}.actions{display:flex;gap:8px;flex-wrap:wrap}button,.download{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border:1px solid #58605e;background:none;color:#edf1e9;font-family:inherit;font-size:12px;font-weight:600;text-decoration:none;cursor:pointer}button{font-family:inherit;font-size:12px;font-weight:650;background:#c2e980;color:#171c14;border-color:#c2e980}button:hover{background:#d6f5a6}.download:hover{border-color:#c2e980;color:#c2e980}.secondary{display:flex;gap:18px;font-size:11px;color:#98a1a0;margin-top:16px}.details{padding:8px 0;margin-top:19px;color:#9ea7a4;font-size:12px;line-height:1.85}.details summary{cursor:pointer;color:#d2d7d0}.details p{margin-bottom:0}
+    .howto{padding:40px 0 56px;border-top:1px solid #383c3d;display:grid;grid-template-columns:1fr 2fr;gap:36px}.howto h2{font-size:22px}.howto ol{margin:0;padding-left:22px;color:#b4bbba;font-size:14px;line-height:2.1}.howto p{font-size:12px;color:#929c98;line-height:1.8;margin:15px 0 0}footer{border-top:1px solid #383c3d;color:#8c9792;font-size:11px;line-height:1.8;padding:24px 0 36px}.footer-row{display:flex;gap:20px;justify-content:space-between}
+    @media(max-width:760px){.wrap{padding:0 22px}.intro{padding:48px 0}.intro p:last-child{font-size:14px}article{grid-template-columns:1fr;gap:25px;padding:25px 0 36px}h2{font-size:25px}.howto{grid-template-columns:1fr;gap:12px}.footer-row{display:block}.number{margin-bottom:10px}}
+  </style>
+</head>
+<body>
+  <header><nav class="wrap"><a class="brand" href="../index.html">錯視ペイント</a><a class="app" href="../index.html">アプリを開く ↗</a></nav></header>
+  <main class="wrap">
+    <section class="intro"><p class="eyebrow">ARTWORK & ILLUSION STUDIES</p><h1>止まっているのに、動く。</h1><p>位置も、角度も、大きさも同じまま。<br>輪郭の明暗だけで生まれる動きを、再生して確かめてください。<br>気になった作品は、ダウンロードして自分の手で編集できます。</p></section>
+    <article aria-label="龍の作品 逆鱗">
+      <a class="preview" href="../showcase/index.html"><img src="../showcase/dragon/poster.png" alt="鱗が幾重にも並ぶ、とぐろを巻いた龍の錯視作品" width="960" height="600"><span class="badge">FEATURED / 龍の作品</span></a>
+      <div><p class="number">GEKIRIN / FEATURED ARTWORK</p><h2>逆鱗 — 動かない龍</h2><p class="description">龍の鱗が流れて見えても、絵の位置は変わりません。固定した輪郭を重ねて確かめられます。作品ページでは、編集用データや鱗の比較サンプル、20秒のPVも公開しています。</p><div class="actions"><a class="download" href="../showcase/index.html">龍の作品を開く ↗</a><a class="download" href="../showcase/dragon/project.json" download="gekirin-project.json">編集用JSON ↓</a></div></div>
+    </article>
+    <article data-sample="01-still-gears">
+      <figure class="preview"><img src="01-still-gears/still.png" alt="3重の輪に並ぶ三角形。外側と内側、真ん中で逆向きの回転感をつくる錯視。" width="960" height="600"><span class="badge">STILL / 静止</span></figure>
+      <div><p class="number">001 / ROTATION</p><h2>止まった歯車</h2><p class="description">3つのリングが、それぞれの向きに回り始める。けれど、三角形の位置は一度も変わりません。真ん中と、その前後のリングを見比べてみてください。</p><div class="actions"><button type="button" class="play" aria-pressed="false">錯視を再生</button><a class="download" href="01-still-gears/project.json" download="止まった歯車.json">編集用JSON ↓</a></div><div class="secondary"><a href="01-still-gears/loop.gif" download>GIFを保存</a><a href="01-still-gears/loop.apng" download>APNGを保存</a></div><details class="details"><summary>アレンジのヒント</summary><p>各リングの「回転方向」を反転してみましょう。強さを2から1にすると、回転感が控えめになります。</p></details></div>
+    </article>
+    <article data-sample="02-breathing-squares">
+      <figure class="preview"><img src="02-breathing-squares/still.png" alt="左右に並ぶ7重の正方形。左は拡大、右は縮小して見える錯視。" width="960" height="600" loading="lazy"><span class="badge">STILL / 静止</span></figure>
+      <div><p class="number">002 / EXPANSION</p><h2>息をする四角</h2><p class="description">左は広がり、右は吸い込まれるように。同じ構造の四角形が、明暗の向きだけで違う表情を見せます。止めて、サイズが変わっていないことを確認してください。</p><div class="actions"><button type="button" class="play" aria-pressed="false">錯視を再生</button><a class="download" href="02-breathing-squares/project.json" download="息をする四角.json">編集用JSON ↓</a></div><div class="secondary"><a href="02-breathing-squares/loop.gif" download>GIFを保存</a><a href="02-breathing-squares/loop.apng" download>APNGを保存</a></div><details class="details"><summary>アレンジのヒント</summary><p>左右の「拡大」と「縮小」を入れ替えると、印象が逆転。周波数2.0〜3.0Hzも試してください。</p></details></div>
+    </article>
+    <article data-sample="03-impossible-current">
+      <figure class="preview"><img src="03-impossible-current/still.png" alt="右向きの矢じりが並ぶ4本の帯。隣り合う帯に逆方向の移動を設定した錯視。" width="960" height="600" loading="lazy"><span class="badge">STILL / 静止</span></figure>
+      <div><p class="number">003 / TRANSLATION</p><h2>流れない川</h2><p class="description">全部右向きなのに、逆向きに流れる列がある。同じ矢じりに交互の移動方向を設定しました。形の向きと、感じる動きの向きは一致するでしょうか。</p><div class="actions"><button type="button" class="play" aria-pressed="false">錯視を再生</button><a class="download" href="03-impossible-current/project.json" download="流れない川.json">編集用JSON ↓</a></div><div class="secondary"><a href="03-impossible-current/loop.gif" download>GIFを保存</a><a href="03-impossible-current/loop.apng" download>APNGを保存</a></div><details class="details"><summary>アレンジのヒント</summary><p>移動角度を0°と180°で切り替えます。すべて0°にしてから、1列ずつ逆転すると違いを比較できます。</p></details></div>
+    </article>
+    <section class="howto"><h2>作品をひらいて、<br>動きを変えてみる。</h2><div><ol><li>作品の「編集用JSON」をダウンロード。</li><li><a href="../index.html">錯視ペイントを開き</a>、「ファイル」→「プロジェクトを開く」からJSONを選択。</li><li>「ガイド」をオフにし、「再生」で錯視を確認。</li><li>再生を止め、レイヤーと動きの範囲を選んで方向・強さを編集。</li></ol><p>編集中の作品がある場合は、サンプルを開く前に「プロジェクトを保存」で残してください。<br>サンプルの下絵は固定されており、変化するのは輪郭付近の明暗です。見え方の強さには個人差があります。</p></div></section>
+  </main>
+  <footer><div class="wrap footer-row"><span>ILLUSION PAINT / ORIGINAL GEOMETRIC STUDIES</span><span>龍の作品と3つの基本サンプルから、あなたの錯視づくりを。</span></div></footer>
+  <script>
+    function setPlaying(article, playing){
+      const button=article.querySelector('.play');
+      button.setAttribute('aria-pressed',String(playing));
+      button.textContent=playing?'停止して比べる':'錯視を再生';
+      article.querySelector('img').src=article.dataset.sample+(playing?'/loop.apng':'/still.png');
+      article.querySelector('.badge').textContent=playing?'PLAYING / 明暗のみ変化':'STILL / 静止';
+    }
+    for(const article of document.querySelectorAll('[data-sample]'))article.querySelector('.play').addEventListener('click',()=>{
+      const playing=article.querySelector('.play').getAttribute('aria-pressed')!=='true';
+      for(const other of document.querySelectorAll('[data-sample]'))if(other!==article&&other.querySelector('.play').getAttribute('aria-pressed')==='true')setPlaying(other,false);
+      setPlaying(article,playing);
+    });
+  </script>
+</body>
+</html>

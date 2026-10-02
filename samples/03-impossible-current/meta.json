@@ -1,0 +1,18 @@
+{
+  "slug": "03-impossible-current",
+  "title": "流れない川",
+  "subtitle": "IMPOSSIBLE CURRENT",
+  "description": "同じ向きの矢じりが並ぶ4本の帯。隣り合う帯は逆向きに流れて見えますが、すべて同じ位置にあります。",
+  "social": "全部右向きなのに、逆向きに流れる列がある。形は固定、変えているのは輪郭の明暗だけ。",
+  "tuning": "各帯の移動方向を0°と180°で切り替え。すべて0°にしてから1列ずつ逆転すると違いを比較できます。",
+  "project": "project.json",
+  "poster": "poster.png",
+  "still": "still.png",
+  "gif": "loop.gif",
+  "apng": "loop.apng",
+  "width": 960,
+  "height": 600,
+  "hz": 2.5,
+  "geometry": "Fixed alpha masks; only edge grayscale changes.",
+  "assets": "Original geometric artwork; no third-party images or fonts."
+}

@@ -1,0 +1,9 @@
+{
+  "title": "逆鱗 — 動かない龍",
+  "hz": 2.5,
+  "project": "project.json",
+  "width": 960,
+  "height": 600,
+  "sourceManifest": "dragon-art/manifest.json",
+  "geometry": "Fixed alpha masks; edge luminance changes only."
+}
