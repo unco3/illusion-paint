@@ -62,13 +62,26 @@ dialog{padding:24px;width:500px;max-width:calc(100vw - 32px);max-height:85vh;max
 .public-tutorial-description{display:block;margin-top:4px;font-size:12px;line-height:1.8;color:#b8c5ce}
 .public-tutorial:hover,.public-tutorial:focus-visible{background:#2c3c48;border-color:#dceef8}
 .public-tutorial:hover .public-tutorial-play,.public-tutorial:focus-visible .public-tutorial-play{background:#e1f1fa}
+
+/* Optional, hands-on introduction. Keep the canvas clear while trying the sample. */
+.welcome{width:390px;max-height:calc(100% - 24px);overflow:auto;padding:24px;text-align:left}
+.welcome h2{font-size:23px;margin:4px 28px 12px 0;line-height:1.5}
+.welcome p{font-size:12px;line-height:1.8;margin-bottom:18px}
+.welcome>div{flex-wrap:wrap}.welcome>div button{min-height:36px}
+.welcome-close{position:absolute;right:10px;top:10px;background:transparent;border:0;font-size:16px}
+.workspace{grid-template-rows:34px minmax(0,1fr) auto 54px}.playbar{grid-row:4}
+.quick-guide{grid-row:3;display:flex;align-items:center;gap:12px;padding:10px 14px;background:#29333b;border-top:1px solid #556673;text-align:left}
+.quick-guide p{flex:1;font-size:12px;line-height:1.7;min-width:0}.quick-guide button{min-height:32px}
+.quick-guide .guide-close{background:transparent;border:0;padding:4px 8px;font-size:16px}
+@media(max-width:600px){.workspace{grid-template-rows:34px minmax(0,1fr) auto auto}}
+@media(max-width:800px){.quick-guide{flex-wrap:wrap;gap:6px;padding:8px 10px}.quick-guide p{flex-basis:calc(100% - 40px)}.quick-guide .guide-close{order:1}.quick-guide #quickCompare{order:2}.welcome{padding:20px}.welcome h2{font-size:20px}}
 </style></head>
 <body>
 <header class="app-bar">
 <div class="brand"><span class="brand-mark" aria-hidden="true">◩</span><h1>錯視ペイント</h1></div>
 <details class="menu"><summary>ファイル</summary><div class="menu-content">
 <button id="openProject">プロジェクトを開く<span>JSON</span></button><button id="saveProject">プロジェクトを保存<span>JSON</span></button><hr>
-<button id="importImage">画像をレイヤーに追加</button><button id="exportPng">下絵をPNGで保存</button><hr><button id="sample">サンプルで始める</button><button id="clear" class="danger-text">すべて消去</button></div></details>
+<button id="importImage">画像をレイヤーに追加</button><button id="exportPng">下絵をPNGで保存</button><hr><button id="sample">サンプルで始める</button><button id="introOpen">はじめに · かんたん体験</button><button id="clear" class="danger-text">すべて消去</button></div></details>
 <details class="menu view-menu"><summary>表示</summary><div class="menu-content"><label class="check"><input id="gridEnabled" type="checkbox">グリッドを表示</label><label class="check"><input id="snapEnabled" type="checkbox">グリッドに吸着</label><label class="grid-step-label">間隔<select id="gridSize"><option value="8">8 px</option><option value="10">10 px</option><option value="20" selected>20 px</option><option value="40">40 px</option></select></label><p class="muted small">ガイドをオフにするとグリッドも非表示になります。吸着の設定は保持します。投げ縄には吸着しません。</p></div></details>
 <button id="helpOpen" class="quiet">使い方</button>
 <details class="menu public-works"><summary>作品</summary><div class="menu-content">
@@ -101,8 +114,16 @@ dialog{padding:24px;width:500px;max-width:calc(100vw - 32px);max-height:85vh;max
 <section class="workspace" aria-label="描画エリア">
 <div class="document-bar"><span class="document-title">無題のプロジェクト <span class="document-type">960 × 600 px</span></span><label class="zoom-label">表示 <select id="zoom" aria-label="キャンバスの表示倍率"><option value="fit">画面に合わせる</option><option value="0.5">50%</option><option value="1">100%</option><option value="1.5">150%</option><option value="2">200%</option><option value="4">400%</option></select></label></div>
 <div id="stage" class="stage"><div class="canvas-pad"><div class="canvas-wrap"><canvas id="art" width="960" height="600" aria-label="描画キャンバス"></canvas></div></div>
-<div id="welcome" class="welcome"><span class="welcome-kicker">ILLUSION STUDIO</span><h2>描いて、囲んで、動かす。</h2><p>形はそのまま。輪郭の明暗が、動きを生み出します。</p><ol><li><b>01</b> 線・図形・文字で描く</li><li><b>02</b> 動かしたい範囲を囲む</li><li><b>03</b> 動きを選んで再生</li></ol><div><button id="welcomeSample" class="primary">サンプルを試す</button><button id="welcomeDismiss">描き始める</button></div><small>このブラウザだけで動作します。</small></div>
+<section id="welcome" class="welcome" aria-labelledby="welcomeTitle" hidden>
+<button id="welcomeClose" class="welcome-close" aria-label="案内を閉じる">×</button>
+<h2 id="welcomeTitle">止まった絵が、動いて見える。</h2>
+<p id="welcomeDescription">形は動かさず、輪郭の明暗だけで生まれる錯視。<br>まずはサンプルで体験してみましょう。</p>
+<div><button id="welcomeSample" class="primary">サンプルを再生</button><button id="welcomeDismiss">自分で描く</button></div>
+</section>
 </div>
+<section id="quickGuide" class="quick-guide" aria-label="かんたんガイド" hidden>
+<p id="quickHint"></p><button id="quickCompare" hidden aria-pressed="false">下絵と比べる</button><button id="quickClose" class="guide-close" aria-label="かんたんガイドを閉じる">×</button>
+</section>
 <div class="playbar"><button id="play" title="再生 / 一時停止 (Space)">再生</button><span id="time">0.00 s</span><span class="play-separator"></span><label class="frequency">周期 <input id="hz" type="range" min="0.5" max="5" step="0.1" value="3"><output id="hzValue">3.0 Hz</output></label><label>比較 <select id="comparison"><option value="illusion">錯視</option><option value="flicker">点滅だけ</option><option value="still">下絵だけ</option></select></label><label class="check guide-toggle"><input id="guides" type="checkbox" checked>ガイド</label></div>
 </section>
 <aside id="inspector" aria-label="設定パネル">
@@ -1261,6 +1282,79 @@ globalThis.IllusionPreferences=(() => {
     const clean=!unsaved();remember();stop();resetLayers('回転する歯車');const leftLayer=activeLayerId;ic.fillStyle='rgb(140,140,140)';gear(260,295,154,24);const right=createLayer('膨らむ歯車');layers.push(right);bindLayer(right.id);ic.fillStyle='rgb(140,140,140)';gear(675,295,138,20);
     regions=[{id:nextId++,name:'回転する歯車',layerId:leftLayer,kind:'rect',x:80,y:110,w:360,h:370,cx:260,cy:295,motion:'rotate',rotation:1,angle:0,strength:1,enabled:true},{id:nextId++,name:'膨らむ歯車',layerId:right.id,kind:'lasso',points:[{x:490,y:120},{x:816,y:123},{x:858,y:310},{x:810,y:480},{x:510,y:480},{x:478,y:300}],x:478,y:120,w:380,h:360,cx:675,cy:295,motion:'expand',rotation:1,angle:0,strength:1,enabled:true}];bindLayer(leftLayer);selectOne(regions[0].id);clock=0;geometryDirty=dirty=true;setTool('select');refresh();render();if(clean)baseline();say('左は回転、右は拡大。「再生」で確認できます。サンプルは2枚のレイヤーです。前の作品は「戻す」で復元できます。');
   };
+  // Onboarding never replaces an existing document, even when it has been saved.
+  const introKey='illusion-paint-intro-v1';
+  let introSeen=false,quickMode=null;
+  try{introSeen=localStorage.getItem(introKey)==='seen';}catch{}
+  function rememberIntro(){if(introSeen)return;introSeen=true;try{localStorage.setItem(introKey,'seen');}catch{}}
+  function hasIntroDocument(){return editCount>0||regions.length>0||layers.length>1;}
+  function closeIntro(focus=true){
+    const hadFocus=$('welcome').contains(document.activeElement);
+    $('welcome').hidden=true;rememberIntro();
+    if(focus&&hadFocus)document.querySelector('[data-tool="'+tool+'"]')?.focus();
+  }
+  function syncQuickCompare(){
+    const still=$('comparison').value==='still';
+    $('quickCompare').textContent=still?'錯視に戻す':'下絵と比べる';
+    $('quickCompare').setAttribute('aria-pressed',String(still));
+  }
+  function showQuickGuide(mode){
+    quickMode=mode;$('quickGuide').hidden=false;$('quickCompare').hidden=mode!=='sample';
+    $('quickHint').textContent=mode==='sample'
+      ?'左は回転、右は拡大。下絵と比べると、形の位置が変わらないことがわかります。'
+      :'線や図形を描く → 左の「矩形範囲」で囲む → 下の「再生」。動きは右のパネルで変えられます。';
+    if(innerWidth<=800&&mode!=='sample')$('quickHint').textContent='描く → 左の「矩形範囲」で囲む → 下の「再生」。動きは上の「パネル」で変更できます。';
+    syncQuickCompare();
+  }
+  function openIntro(){
+    if(recording||gesture||restoring)return;
+    const existing=hasIntroDocument();
+    $('welcomeSample').hidden=existing;
+    $('welcomeDismiss').textContent=existing?'操作のヒントを見る':'自分で描く';
+    $('welcomeDescription').textContent=existing
+      ?'作品はそのままに、描く・囲む・再生のヒントを確認できます。'
+      :'形は動かさず、輪郭の明暗だけで生まれる錯視。まずはサンプルで体験してみましょう。';
+    $('welcome').hidden=false;
+    (existing?$('welcomeDismiss'):$('welcomeSample')).focus();
+  }
+  $('introOpen').onclick=openIntro;
+  $('welcomeClose').onclick=()=>closeIntro();
+  $('welcomeDismiss').onclick=()=>{
+    if(recording||gesture||restoring||$('welcome').hidden)return;
+    const existing=hasIntroDocument();closeIntro(false);
+    if(!existing)setTool('pen');
+    showQuickGuide('draw');document.querySelector('[data-tool="'+tool+'"]')?.focus();
+  };
+  $('welcomeSample').onclick=()=>{
+    if(recording||gesture||restoring||$('welcome').hidden||hasIntroDocument())return;
+    closeIntro(false);$('sample').click();
+    $('comparison').value='illusion';showQuickGuide('sample');
+    if(!running)$('play').click();
+    $('quickCompare').focus();
+  };
+  $('quickCompare').onclick=()=>{
+    if(recording||gesture||restoring||quickMode!=='sample')return;
+    $('comparison').value=$('comparison').value==='still'?'illusion':'still';
+    $('comparison').dispatchEvent(new Event('change',{bubbles:true}));syncQuickCompare();
+  };
+  $('comparison').addEventListener('change',syncQuickCompare);
+  $('quickClose').onclick=()=>{$('quickGuide').hidden=true;quickMode=null;$('play').focus();};
+  // Ordinary editing can continue immediately; do not retain sample-specific hints after edits.
+  document.addEventListener('click',e=>{
+    if(quickMode==='sample'&&e.target.closest('.tool-rail, #inspector, #undo, #redo, #clear, #sample'))showQuickGuide('draw');
+  });
+  for(const id of ['sample','openProject','importImage'])$(id).addEventListener('click',()=>{
+    closeIntro(false);$('quickGuide').hidden=true;quickMode=null;
+  });
+  canvas.addEventListener('pointerdown',()=>closeIntro(false));
+  // Changing guide height can resize the fitted canvas; wait until the gesture has ended.
+  canvas.addEventListener('pointerup',()=>{if(quickMode==='sample')showQuickGuide('draw');});
+  document.addEventListener('keydown',e=>{
+    if(quickMode==='sample'&&!e.target.closest('input,select,textarea,[contenteditable]')&&!document.querySelector('dialog[open]')&&!recording&&((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='z'||['Delete','Backspace'].includes(e.key)))showQuickGuide('draw');
+    if(e.key==='Escape'&&!$('welcome').hidden&&!document.querySelector('dialog[open]')&&!recording){closeIntro();e.preventDefault();}
+  });
+  // Persist dismissal only, never artwork or a mandatory tutorial step.
+  $('welcome').hidden=introSeen;
   function download(blob,name){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),60000);}
   $('saveProject').onclick=()=>{if(pathPlacement){say('先にパス配置を確定するか、終了してください。');return;}const s=snapshot();download(new Blob([JSON.stringify({format:'illusion-paint',version:2,width:W,height:H,...s})],{type:'application/json'}),'illusion-paint.json');savedEditCount=editCount;say('プロジェクトを保存しました。レイヤー・下絵・動き・エフェクトを再編集できます。');};
   $('openProject').onclick=()=>$('projectFile').click();
@@ -1365,10 +1459,6 @@ globalThis.IllusionPreferences=(() => {
   $('exportFormat').addEventListener('change',exportLabel);exportLabel();
   $('helpOpen').onclick=()=>$('helpDialog').showModal();$('helpClose').onclick=()=>$('helpDialog').close();
   $('inspectorToggle').onclick=()=>{const open=document.body.classList.toggle('inspector-open');$('inspectorToggle').setAttribute('aria-expanded',open);};
-  $('welcomeDismiss').onclick=()=>{$('welcome').hidden=true;};
-  $('welcomeSample').onclick=()=>{$('sample').click();};
-  for(const id of ['sample','openProject','importImage'])$(id).addEventListener('click',()=>{$('welcome').hidden=true;});
-  $('art').addEventListener('pointerdown',()=>{$('welcome').hidden=true;});
   document.querySelectorAll('.menu-content button').forEach(b=>b.addEventListener('click',()=>b.closest('details').open=false));
   document.addEventListener('pointerdown',e=>{if(!e.target.closest('.menu'))document.querySelectorAll('.menu[open]').forEach(el=>el.open=false);});
 })();
