@@ -1,14 +1,29 @@
 # 錯視ペイント
 
-形状を動かさず、輪郭の明暗変化によって動いて見えるアニメーションを作る、ブラウザ用のペイントツールです。
+**止まっている絵が、動いて見える。**
 
-[龍の作品「逆鱗」を見る](showcase/index.html) — 錯視の再生、固定輪郭との比較、編集用JSON、GIF・APNG・MP4、縦横のPVを収録しています。
+形の位置や大きさを変えず、輪郭の明暗だけで動いて見えるアニメーションを作るペイントツールです。ブラウザで描いて、GIF・APNG・動画として保存できます。
 
-[基本サンプルを見る](samples/index.html) — 逆回転するリング、膨張・収縮する四角、逆向きに流れる矢じり。各作品のJSONをダウンロードして、このツールで編集できます。
+**[ブラウザで使ってみる](https://unco3.github.io/illusion-paint/)** · [作品を見てみる](https://unco3.github.io/illusion-paint/samples/)
+
+<a href="https://unco3.github.io/illusion-paint/showcase/">
+  <img src="showcase/dragon/loop.gif" alt="錯視作品「逆鱗」。とぐろを巻く龍の鱗が流れて見えるループアニメーション。" width="960">
+</a>
+
+**逆鱗 — 動かない龍。** 鱗が流れて見えても、下絵の位置は変わりません。[作品ページ](https://unco3.github.io/illusion-paint/showcase/)では固定した輪郭を重ねて比較できます。編集用データをダウンロードして、自分で動きの設定を変えることもできます。
+
+## こんな錯視を作れます
+
+| 回転 | 拡大・縮小 | 移動 |
+| :---: | :---: | :---: |
+| [![逆向きに回転して見える3重のリング](samples/01-still-gears/loop.gif)](https://unco3.github.io/illusion-paint/samples/) | [![左は広がり、右は縮んで見える四角形](samples/02-breathing-squares/loop.gif)](https://unco3.github.io/illusion-paint/samples/) | [![隣り合う帯が逆向きに流れて見える矢じり](samples/03-impossible-current/loop.gif)](https://unco3.github.io/illusion-paint/samples/) |
+| 止まった歯車 | 息をする四角 | 流れない川 |
+
+どれも、図形そのものの位置・角度・大きさは固定です。[サンプル一覧](https://unco3.github.io/illusion-paint/samples/)で一つずつ再生し、下絵と見比べられます。見え方の強さは、見る人や表示サイズによって異なります。
 
 ## 使い方
 
-[基本操作を動画で見る](tutorial/index.html)。アプリ上部の「使い方」からも開けます。
+[基本操作を動画で見る](https://unco3.github.io/illusion-paint/tutorial/)。アプリ上部の「使い方」からも開けます。
 
 1. 線・図形・文字で描くか、画像を読み込みます。
 2. 「形を選択」、矩形範囲、投げ縄で動かしたい範囲を選びます。
